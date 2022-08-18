@@ -21,8 +21,7 @@ ul.nav-bar {
 }
 
 .nav-bar li {
-  margin-left: 2rem;
-  margin-right: 1rem;
+  margin-right: 3rem;
   color: whitesmoke;
   text-decoration: none;
 }
@@ -121,7 +120,7 @@ h1 {
 } 
 
 .footer-left {
-  margin-left: 2rem;
+  margin-left: 10%;
   color: whitesmoke;
   text-decoration: none;
 }
