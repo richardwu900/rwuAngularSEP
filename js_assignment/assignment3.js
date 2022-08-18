@@ -44,5 +44,15 @@ function js4(to_sort) {
     // just like reversing a string, but using sort() instead of reverse()
     return to_sort.split("").sort().join("");
 }
-console.log(js4("webmaster"));
-console.log(js4("THEQUICKBROWNFOXJUMPSOVERTHELAZYDOGthequickbrownfoxjumpsoverthelazydog"));
+// console.log(js4("webmaster"));
+// console.log(js4("THEQUICKBROWNFOXJUMPSOVERTHELAZYDOGthequickbrownfoxjumpsoverthelazydog"));
+
+// JS5:  Write a JavaScript function that accepts a string as a parameter and converts the first letter of each word of the string in upper case.  
+function js5(to_capitalize) {
+    return to_capitalize.toLowerCase()
+    .split(" ")
+    // Splits and rejoins by space, and in between replaces each 1st character word in the array
+    .map((word) => word.charAt(0).toUpperCase() + word.substring(1))
+    .join(" ");
+}
+console.log(js5("the quick brown fox jumped over the lazy dog."));
