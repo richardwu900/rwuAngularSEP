@@ -82,16 +82,44 @@ function js6(input) {
 function js7(input) {
     const vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"];
     vowel_count = 0;
+    // checks ever character to see if it's a vowel or not
     for (i = 0; i < input.length; i++){
+        // increases vowel_count by one each time it is indeed a vowel.
         if (vowels.includes(input[i])) {
             vowel_count++;
         }
     }
     return vowel_count;
 }
-console.log(js7("aeiouAEIOU"));
-console.log(js7("lol k"));
-console.log(js7("The quick brown fox"));
+// console.log(js7("aeiouAEIOU"));
+// console.log(js7("lol k"));
+// console.log(js7("The quick brown fox"));
+
+// JS8: Write a JavaScript function that accepts a number as a parameter and check the number is prime or not. 
+// returns true if prime, returns false if not.
+function js8(input) {
+    // take care of obvious cases first
+    if (input < 2) {
+        return false;
+    } else if (input === 2){
+        return true;
+    } else {
+        // iterates over every number lesser than input, seeing if it can divide evenly with it...
+        for (let i = 2; i < input; i++) {
+            if ((input % i) === 0) {
+              // ... and is confirmed not to be prime if it can
+              return false;
+            }
+        }
+        // After all that, all possibilites are exhausted, ergo input must be prime.
+        return true;
+    }
+}
+console.log(js8(2));
+console.log(js8(4));
+console.log(js8(7));
+console.log(js8(97));
+
 
 
 
