@@ -19,6 +19,20 @@ function js2(potential_palindrome) {
     qotential_qalindrome = potential_palindrome.split("").reverse().join(""); //reverse string
     return (potential_palindrome === qotential_qalindrome);
 }
-console.log(js2("nurses run"));
-console.log(js2("egg"));
-console.log(js2("taco cat"));
+// console.log(js2("nurses run"));
+// console.log(js2("egg"));
+// console.log(js2("taco cat"));
+
+// JS3: Write a JavaScript function that generates all combinations of a string. 
+function js3(input) {
+    let combos = [];
+    for (let i = 0; i < input.length; i++) {
+        for (let j = i + 1; j <= input.length; j++) {
+            combos.push(input.slice(i, j));
+        }
+    }
+    return combos;
+}
+console.log(js3("a"));
+console.log(js3("dog"));
+console.log(js3("kitten"));
