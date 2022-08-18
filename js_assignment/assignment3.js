@@ -62,10 +62,13 @@ function js5(to_capitalize) {
 function js6(input) {
     // make words array of the input divided by spaces
     let words = input.split(" ");
-    // let length = 0;
+    // keep track of longest word found
     let longest = "";
+    // iterate over words
     for (let i = 0; i < words.length; i++) {
+        // if current word is longer...
         if (words[i].length > longest.length) {
+            // ... replace longest kept track of
             longest = words[i];
         }
     }
@@ -73,3 +76,22 @@ function js6(input) {
 }
 // console.log(js6("I like eggs"));
 // console.log(js6("I will eliminate the middle class"));
+// console.log(js6("Web Development Tutorial"));
+
+// JS7:  Write a JavaScript function that accepts a string as a parameter and counts the number of vowels within the string. 
+function js7(input) {
+    const vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"];
+    vowel_count = 0;
+    for (i = 0; i < input.length; i++){
+        if (vowels.includes(input[i])) {
+            vowel_count++;
+        }
+    }
+    return vowel_count;
+}
+console.log(js7("aeiouAEIOU"));
+console.log(js7("lol k"));
+console.log(js7("The quick brown fox"));
+
+
+
