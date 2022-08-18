@@ -26,13 +26,23 @@ function js2(potential_palindrome) {
 // JS3: Write a JavaScript function that generates all combinations of a string. 
 function js3(input) {
     let combos = [];
+    // giving each character its chance to be the first in the combo
     for (let i = 0; i < input.length; i++) {
+        // doing all possible combos with said character being first.
         for (let j = i + 1; j <= input.length; j++) {
             combos.push(input.slice(i, j));
         }
     }
     return combos;
 }
-console.log(js3("a"));
-console.log(js3("dog"));
-console.log(js3("kitten"));
+// console.log(js3("a"));
+// console.log(js3("dog"));
+// console.log(js3("kitten"));
+
+// JS4:  Write a JavaScript function that returns a passed string with letters in alphabetical order. 
+function js4(to_sort) {
+    // just like reversing a string, but using sort() instead of reverse()
+    return to_sort.split("").sort().join("");
+}
+console.log(js4("webmaster"));
+console.log(js4("THEQUICKBROWNFOXJUMPSOVERTHELAZYDOGthequickbrownfoxjumpsoverthelazydog"));
