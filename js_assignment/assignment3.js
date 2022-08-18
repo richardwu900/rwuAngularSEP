@@ -125,13 +125,33 @@ function js9(input) {
     // this isn't even really writing a function, it's kinda just proving I know typeof exists
     return (typeof input);
 }
-console.log(js9({egg:'chicken'}));
-console.log(js9("egg"));
-console.log(js9(399));
-console.log(js9());
-console.log(js9(function(){}));
-console.log(js9(false));
+// console.log(js9({egg:'chicken'}));
+// console.log(js9("egg"));
+// console.log(js9(399));
+// console.log(js9());
+// console.log(js9(function(){}));
+// console.log(js9(false));
 
+// JS10: Write a JavaScript function which returns the n rows by n columns identity matrix. 
+function js10(n) {
+    // makes a 2d matrix of dimension n...
+    var matrix = []
+    for (let i = 0; i < n; i += 1) {
+        // ...I said TWOd...
+        matrix[i] = [];
+        for (let j = 0; j < n; j += 1) {
+            // ... and fills all entries with 0s!
+            matrix[i][j] = 0;
+            if (i === j) {
+                // except for these ones, that make sqaures lol. they're 1s.
+                matrix[i][j] = 1;
+            }
+        }
+    }
+    return matrix;
+}
+console.log(js10(3));
+console.log(js10(6));
 
 
 
