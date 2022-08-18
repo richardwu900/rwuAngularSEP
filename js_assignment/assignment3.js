@@ -55,4 +55,21 @@ function js5(to_capitalize) {
     .map((word) => word.charAt(0).toUpperCase() + word.substring(1))
     .join(" ");
 }
-console.log(js5("the quick brown fox jumped over the lazy dog."));
+// console.log(js5("the quick brown fox jumped over the lazy dog."));
+
+// JS6: Write a JavaScript function that accepts a string as a parameter and find the longest word within the string. 
+// (if multiple words exist of the same longest length, returns the first one.)
+function js6(input) {
+    // make words array of the input divided by spaces
+    let words = input.split(" ");
+    // let length = 0;
+    let longest = "";
+    for (let i = 0; i < words.length; i++) {
+        if (words[i].length > longest.length) {
+            longest = words[i];
+        }
+    }
+    return longest;
+}
+// console.log(js6("I like eggs"));
+// console.log(js6("I will eliminate the middle class"));
