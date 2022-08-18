@@ -115,10 +115,26 @@ function js8(input) {
         return true;
     }
 }
-console.log(js8(2));
-console.log(js8(4));
-console.log(js8(7));
-console.log(js8(97));
+// console.log(js8(2));
+// console.log(js8(4));
+// console.log(js8(7));
+// console.log(js8(97));
+
+// JS9: Write a JavaScript function which accepts an argument and returns the type. 
+function js9(input) {
+    // this isn't even really writing a function, it's kinda just proving I know typeof exists
+    return (typeof input);
+}
+console.log(js9({egg:'chicken'}));
+console.log(js9("egg"));
+console.log(js9(399));
+console.log(js9());
+console.log(js9(function(){}));
+console.log(js9(false));
+
+
+
+
 
 
 
