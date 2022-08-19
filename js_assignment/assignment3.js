@@ -150,12 +150,30 @@ function js10(n) {
     }
     return matrix;
 }
-console.log(js10(3));
-console.log(js10(6));
+// console.log(js10(3));
+// console.log(js10(6));
 
-
-
-
-
+// JS11: Write a JavaScript function which will take an array of numbers stored and find the second lowest and second greatest numbers, respectively. 
+// I'm just going to assume we're given an (only number containing) array with at least two numbers
+function js11(numbers) {
+    // accounting for obvious only two numbers case
+    if (numbers.length == 2) {
+        if (numbers[0] > numbers[1]) {
+            return [numbers[0], numbers[1]];
+        } else {
+            return [numbers[1], numbers[0]];
+        }
+    } else {
+        // otherwise, sort the numbers and return the second from the left & right
+        numbers.sort();
+        greatest2nd_index = numbers.length - 2;
+        return [numbers[1], numbers[greatest2nd_index]];
+    }
+}
+// console.log(js11([1, 9]));
+// console.log(js11([9, 1]));
+// console.log(js11([1,3,2]));
+// console.log(js11([1,2,3,4,5]))
+// console.log(js11([9,1,2,4,8]));
 
 
