@@ -320,7 +320,16 @@ function js18(array, to_find) {
 // console.log(js18([1, 2, 3, 4, 5, 6], 9999));
 // console.log(js18([1, 22, 300, 9999, 56940, 369123], 9999));
 
-
-
+// JS19: Write a JavaScript function that returns array elements larger than a number. 
+function js19(array, minimum) {
+    let qualifiers = [];
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] > minimum) {
+            qualifiers.push(array[i]);
+        }
+    }
+    return qualifiers;
+}
+console.log(js19([1, 22, 300, 9999, 56940, 369123, 5, 6, 38], 16));
 
 
