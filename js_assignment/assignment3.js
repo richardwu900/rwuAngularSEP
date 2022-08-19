@@ -480,8 +480,12 @@ function js28(func) {
 function js28_5() {
     console.log("I mean ok");
 }
-js28(js28_5);
+// js28(js28_5);
 
-
+// JS29: Write a JavaScript function to get the function name. 
+function js29() {
+    console.log(arguments.callee.name);
+}
+js29();
 
 
