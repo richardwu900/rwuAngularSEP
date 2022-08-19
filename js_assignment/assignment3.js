@@ -473,6 +473,14 @@ function js27(input) {
 }
 // console.log(js27("kabcdefgfedcbai"));
 
+// JS28: Write a JavaScript program to pass a 'JavaScript function' as parameter. 
+function js28(func) {
+    func();
+}
+function js28_5() {
+    console.log("I mean ok");
+}
+js28(js28_5);
 
 
 
