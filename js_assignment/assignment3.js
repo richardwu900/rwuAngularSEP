@@ -251,7 +251,20 @@ function js15(b, n) {
         return (1 / base_number);
     }
 }
-console.log(js15(2, 4));
-console.log(js15(2, -4));
+// console.log(js15(2, 4));
+// console.log(js15(2, -4));
 
-
+// JS16: Write a JavaScript function to extract unique characters from a string. 
+function js16(input) {
+    let unique = [];
+    // iterate over each character in input
+    for (let i = 0; i < input.length; i++) {
+        // if the current character doesn't exist in unique already, push it.
+        if (!unique.includes(input[i])) {
+            unique.push(input[i]);
+        }
+    }
+    // make unique a string and not an array, return it.
+    return unique.join("");
+}
+console.log(js16("the quick brown fox jumped over the lazy dog"));
