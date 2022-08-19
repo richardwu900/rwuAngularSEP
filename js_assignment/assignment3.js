@@ -267,4 +267,26 @@ function js16(input) {
     // make unique a string and not an array, return it.
     return unique.join("");
 }
-console.log(js16("the quick brown fox jumped over the lazy dog"));
+// console.log(js16("the quick brown fox jumped over the lazy dog"));
+
+// JS17: Write a JavaScript function to get the number of occurrences of each letter in specified string. 
+// I did this, but also for every other character as well.
+function js17(input) {
+    // sort characters alphabetically so they're all together and cute
+    let result = [];
+    let sorted = input.split("").sort().join("");
+    let counter = 1;
+    // iterate over sorted list
+    for (let i = 0; i < sorted.length; i++) {
+        if (sorted[i] == sorted[i + 1]) {
+            // see how long each chain of unique letters goes on
+            counter++;
+        } else {
+            // push the results for each character.
+            result.push([sorted[i], counter]);
+            counter = 1;
+        }
+    }
+    return result;
+}
+console.log(js17("I love eggs and I will kill your family."));
