@@ -289,4 +289,38 @@ function js17(input) {
     }
     return result;
 }
-console.log(js17("I love eggs and I will kill your family."));
+// console.log(js17("I love eggs and I will kill your family."));
+
+// JS18: Write a JavaScript function to get the number of occurrences of each letter in specified string. 
+// Returns index (assuming array is sorted in ascending order)
+function js18(array, to_find) {
+    let start = 0;
+    let end = array.length -1;
+
+    while (start <= end) {
+        // keep checking the midpoint, then pick another half to look in.
+        let midpoint = Math.floor((start + end) / 2);
+        if (array[midpoint] === to_find) {
+            // found
+            return midpoint;
+        } else if (array[midpoint] < to_find) {
+            // search right half
+            start = midpoint + 1;
+        } else {
+            // search left half
+            end = midpoint - 1;
+        }
+    }
+    return "doesn't exist";
+}
+// console.log(js18([1, 2, 3, 4, 5, 6], 1));
+// console.log(js18([1, 2, 3, 4, 5, 6], 3));
+// console.log(js18([1, 2, 3, 4, 5, 6], 5));
+// console.log(js18([1, 2, 3, 4, 5, 6], 6));
+// console.log(js18([1, 2, 3, 4, 5, 6], 9999));
+// console.log(js18([1, 22, 300, 9999, 56940, 369123], 9999));
+
+
+
+
+
