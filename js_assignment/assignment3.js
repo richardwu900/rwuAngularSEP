@@ -289,7 +289,7 @@ function js17(input) {
     }
     return result;
 }
-// console.log(js17("I love eggs and I will kill your family."));
+// console.log(js17("I love eggs and I will bill your family."));
 
 // JS18: Write a JavaScript function to get the number of occurrences of each letter in specified string. 
 // Returns index (assuming array is sorted in ascending order)
@@ -371,3 +371,10 @@ function js21(array, length) {
     return result;
 }
 // console.log(js21([1,2,3], 2));
+
+// JS22: Write a JavaScript function that accepts two arguments, a string and a letter and the function will count the number of occurrences of the specified letter within the string. 
+function js22(input, letter) {
+    return (input.length - input.split(letter).join("").length);
+}
+console.log(js22("egg", 'g'));
+console.log(js22("I love egg-pilling people lol", "l"));
