@@ -456,8 +456,23 @@ function js26(input) {
     }
     return longest;
 }
-console.log(js26("abac"));
-console.log(js26("eggabcdefghijklmnopegg"));
+// console.log(js26("abac"));
+// console.log(js26("eggabcdefghijklmnopegg"));
+
+// JS27: Write a JavaScript function that returns the longest palindrome in a given string. 
+function js27(input) {
+    // You... meant for me to use previously implemented functions, right?
+    let combos = js3(input);
+    let sortedcombos = combos.sort((a, b) => a.length - b.length).reverse();
+    for(let i = 0; i < sortedcombos.length; i++) {
+        if (js2(sortedcombos[i])){
+            return sortedcombos[i];
+        }
+    }
+    return "lol doesn't exist";
+}
+// console.log(js27("kabcdefgfedcbai"));
+
 
 
 
