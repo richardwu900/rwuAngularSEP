@@ -205,9 +205,25 @@ function js13(input) {
     }
     return factors;
 }
-console.log(js13(12));
-console.log(js13(1));
-console.log(js13(97));
+// console.log(js13(12));
+// console.log(js13(1));
+// console.log(js13(97));
+
+// JS14: Write a JavaScript function to convert an amount to coins.
+function js14(amount, coins) {
+    let output = [];
+    // we iterate through each coin
+    for (let i = 0; i < coins.length; i ++) {
+        // for each of this specific coin that fits inside, push another one in.
+        for (let j = 1; j <= Math.floor(amount / coins[i]); j++) {
+            output.push(coins[i]);
+        }
+        // then the amount is left with the remainder
+        amount = amount % coins[i];
+    }
+    return output;
+}
+// console.log(js14(46, [25, 10, 5, 2, 1]));
 
 
 
