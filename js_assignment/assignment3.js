@@ -425,4 +425,40 @@ function js25(names) {
     }
     return longest;
 }
-console.log(js25(["Australia", "Germany", "United States of America"]));
+// console.log(js25(["Australia", "Germany", "United States of America"]));
+
+// JS26: Write a JavaScript function to find longest substring in a given a string without repeating characters. 
+function js26(input) {
+    // keep track of longest & its length
+    let longest = "";
+    let max = 0;
+    // iterate, letting each substring start with any first character of the string
+    for (let i = 0; i < input.length; i++) {
+        // keep track of current substring & its length
+        let count = 0;
+        let current = "";
+        // test to see how far each substring (wtih specific established starting point) can go
+        for (let j = i; j < input.length; j++) {
+            // stop when repeating character is found within substring
+            if (current.includes(input[j])) {
+                break;
+            } else {
+                // keep up with current substring's potential
+                current += input[j];
+                count++;
+                // make it the new longest/max if its streak is broken
+                if (count > max) {
+                    max = count;
+                    longest = current;
+                }
+            }
+        }
+    }
+    return longest;
+}
+console.log(js26("abac"));
+console.log(js26("eggabcdefghijklmnopegg"));
+
+
+
+
