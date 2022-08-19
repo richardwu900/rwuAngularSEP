@@ -189,8 +189,26 @@ function js12(input) {
     // confirm if sum is equal or not.
     return (sum === input);
 }
-console.log(js12(6));
-console.log(js12(69));
-console.log(js12(28));
+// console.log(js12(6));
+// console.log(js12(69));
+// console.log(js12(28));
+
+// JS13: Write a JavaScript function to compute the factors of a positive integer. 
+function js13(input) {
+    let factors = []
+    // check numbers between 1 and itself (inclusive)
+    for (let i = 1; i <= input; i++) {
+        // check for every divisor, add factors to the list
+        if (input % i == 0) {
+            factors.push(i);
+        }
+    }
+    return factors;
+}
+console.log(js13(12));
+console.log(js13(1));
+console.log(js13(97));
+
+
 
 
