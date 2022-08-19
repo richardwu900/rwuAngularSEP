@@ -406,6 +406,7 @@ function js24(array) {
             }
         }
     }
-    return array;
+    return array.reverse();
 }
 console.log(js24([5, 2, 324, 890, 65, 97, 567, 123, 0]));
+console.log(js24([12, 345, 4, 546, 122, 84, 98, 64, 9, 1, 3223, 455, 23, 234, 213]));
