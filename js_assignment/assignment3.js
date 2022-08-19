@@ -330,6 +330,16 @@ function js19(array, minimum) {
     }
     return qualifiers;
 }
-console.log(js19([1, 22, 300, 9999, 56940, 369123, 5, 6, 38], 16));
-
+// console.log(js19([1, 22, 300, 9999, 56940, 369123, 5, 6, 38], 16));
+// JS20: Write a JavaScript function that generates a string id (specified length) of random characters. 
+function js20(length) {
+    let result = "";
+    let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    for (var i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return result;
+}
+// console.log(js20(23));
+// console.log(js20(46));
 
