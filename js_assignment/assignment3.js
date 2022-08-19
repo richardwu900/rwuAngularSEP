@@ -343,3 +343,31 @@ function js20(length) {
 // console.log(js20(23));
 // console.log(js20(46));
 
+// JS21: Write a JavaScript function to get all possible subset with a fixed length (for example 2) combinations in an array.
+function js21(array, length) {
+    const result = [[]];
+    // iterate over array
+    for (let i = 0; i < array.length; i++) {
+        let last = result.length - 1;
+        for (let j = 0; j <= last; j++) {
+            // keep adding unique subsets
+            result.push( [...result[j], array[i]] );
+            console.log(result);
+        }
+    }
+
+    let to_splice =[];
+    // do this backwards to not interfere with indexes when splicing
+    for (let i = result.length - 1; i >= 0; i--) {
+        if (result[i].length != length) {
+            to_splice.push(i);
+        }
+    }
+    // console.log(to_splice);
+    // remove all not length = length
+    for (let i = 0; i < to_splice.length; i++) {
+        result.splice(to_splice[i], 1);
+    }
+    return result;
+}
+// console.log(js21([1,2,3], 2));
