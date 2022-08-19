@@ -390,3 +390,22 @@ function js23(input) {
 }
 // console.log(js23("abacddbec'"));
 // console.log(js23("BBBBBBB"));
+
+// JS24: bubblesort
+function js24(array) {
+    // iterate forwards
+    for (let i = 0; i < array.length; i++) {
+        // we work from sorting the last elements in place first.
+        for(let j = 0; j < (array.length - i - 1); j++) {
+            // checking if current item is greater than the next...
+            if(array[j] > array[j + 1]) {
+                // ...and if it is, swap.
+                let temp = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = temp;
+            }
+        }
+    }
+    return array;
+}
+console.log(js24([5, 2, 324, 890, 65, 97, 567, 123, 0]));
