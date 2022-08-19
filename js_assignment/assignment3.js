@@ -408,5 +408,21 @@ function js24(array) {
     }
     return array.reverse();
 }
-console.log(js24([5, 2, 324, 890, 65, 97, 567, 123, 0]));
-console.log(js24([12, 345, 4, 546, 122, 84, 98, 64, 9, 1, 3223, 455, 23, 234, 213]));
+// console.log(js24([5, 2, 324, 890, 65, 97, 567, 123, 0]));
+// console.log(js24([12, 345, 4, 546, 122, 84, 98, 64, 9, 1, 3223, 455, 23, 234, 213]));
+
+// JS25: Write a JavaScript function that accept a list of country names as input and returns the longest country name as output. 
+function js25(names) {
+    // keep track of longest name found
+    let longest = "";
+    // iterate over words
+    for (let i = 0; i < names.length; i++) {
+        // if current word is longer...
+        if (names[i].length > longest.length) {
+            // ... replace longest kept track of
+            longest = names[i];
+        }
+    }
+    return longest;
+}
+console.log(js25(["Australia", "Germany", "United States of America"]));
