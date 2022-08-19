@@ -176,4 +176,21 @@ function js11(numbers) {
 // console.log(js11([1,2,3,4,5]))
 // console.log(js11([9,1,2,4,8]));
 
+// JS12: Write a JavaScript function which says whether a number is perfect.
+// returns true if perfect, false if not.
+function js12(input) {
+    let sum = 0;
+    for (let i = 1; i < input; i++) {
+        // check for every divisor, add each to sum
+        if (input % i == 0) {
+            sum += i;
+        }
+    }
+    // confirm if sum is equal or not.
+    return (sum === input);
+}
+console.log(js12(6));
+console.log(js12(69));
+console.log(js12(28));
+
 
