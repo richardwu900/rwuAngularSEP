@@ -376,5 +376,17 @@ function js21(array, length) {
 function js22(input, letter) {
     return (input.length - input.split(letter).join("").length);
 }
-console.log(js22("egg", 'g'));
-console.log(js22("I love egg-pilling people lol", "l"));
+// console.log(js22("egg", 'g'));
+// console.log(js22("I love egg-pilling people lol", "l"));
+
+// JS23: Write a JavaScript function to find the first not repeated character. 
+function js23(input) {
+    for (let i = 0; i < input.length; i++) {
+        if (js22(input, input[i]) === 1){
+            return input[i];
+        }
+    }
+    return "lol doesn't exist";
+}
+// console.log(js23("abacddbec'"));
+// console.log(js23("BBBBBBB"));
