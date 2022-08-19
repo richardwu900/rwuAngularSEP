@@ -225,6 +225,33 @@ function js14(amount, coins) {
 }
 // console.log(js14(46, [25, 10, 5, 2, 1]));
 
+// JS15: Write a JavaScript function to compute the value of bn where n is the exponent and b is the bases. Accept b and n from the user and display the result. 
+function js15(b, n) {
+    // obvious 0 exponent case
+    if (n == 0) {
+        return 1;
+    }
+    // keep track if exponent positive to give proper result
+    let positive = true;
+    if (n < 0) {
+        n *= -1;
+        positive = false;
+    }
 
+    // multiply b by itslef n times
+    let base_number = b;
+    for (let i = 1; i <= n; i++) {
+        base_number = base_number * b;
+    }
+
+    // return proper result, based on positive or negative exponent
+    if (positive){
+        return base_number;
+    } else {
+        return (1 / base_number);
+    }
+}
+console.log(js15(2, 4));
+console.log(js15(2, -4));
 
 
