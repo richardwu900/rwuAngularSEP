@@ -3,7 +3,7 @@ Array.prototype.myMap = function(mapper, argument){
     let result = [];
     // bread and butter of mapping.
     for(let i = 0; i < this.length; i++){
-        result.push(lambda.apply(argument, [this[i], i, this]));
+        result.push(mapper.apply(argument, [this[i], i, this]));
     }
     return result
 }
