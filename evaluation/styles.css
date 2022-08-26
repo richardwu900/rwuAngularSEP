@@ -43,10 +43,10 @@
     background-color: blanchedalmond;
   
     height: calc(100% - var(--height-header));
-    width: 100%;
+    width: 80%;
   
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
   }
   

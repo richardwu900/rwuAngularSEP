@@ -19,13 +19,13 @@ const View = (() => {
       if (todo.selected === true) {
         tmp += `
         <li>
-          <span id="${todo.id}">req:${todo.completed}-creds:${todo.userId}-id:${todo.id}-${todo.title}-</span>
+          <span id="${todo.id}" class="credits:${todo.userId}">req:${todo.completed}-creds:${todo.userId}-id:${todo.id}-${todo.title}-</span>
         </li>
       `
       } else {
         tmp += `
         <li>
-          <span id="${todo.id}">req:${todo.completed}-creds:${todo.userId}-id:${todo.id}-${todo.title}-</span>
+          <span id="${todo.id}" class="credits:${todo.userId}">req:${todo.completed}-creds:${todo.userId}-id:${todo.id}-${todo.title}-</span>
         </li>
       `
       };
@@ -110,6 +110,8 @@ const Controller = ((model, view) => {
       // });
       if (!event.target.classList.contains("selected")){
         event.target.classList.add("selected");
+        document.getElementById("creditCounter").innerHTML = +event.target.classList[0].substring(8) + +document.getElementById("creditCounter").innerHTML;
+        console.log(document.getElementById ('creditCounter'));
       } else {
         event.target.classList.remove("selected");
         state.todolist = state.todolist.filter(
