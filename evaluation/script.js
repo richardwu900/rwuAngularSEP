@@ -7,6 +7,7 @@ const View = (() => {
     todoContainer: '#todolist_containter',
     deletebtn: '.deletebtn',
     inputebox: '.todolist__input',
+    enrolledContainer: "#enrolledlist_container"
   };
 
   const render = (ele, tmp) => {
@@ -52,6 +53,7 @@ const Model = ((api, view) => {
   class State {
     #todolist = [];
     // #selectedlist = [];
+    #enrolledList;
 
     get todolist() {
       // console.log("get depressed loser");
@@ -78,6 +80,13 @@ const Model = ((api, view) => {
     //   // const tmp = view.createTmp(this.#todolist);
     //   // view.render(todoContainer, tmp);
     // }
+    set enrolledList(newenrolledlist) {
+      this.#enrolledList = [...newenrolledlist];
+
+      const enrolledContainer = document.querySelector(view.domstr.enrolledContainer);
+      const tmp = view.createTmp(this.#enrolledList);
+      view.render(enrolledContainer, tmp);
+    }
   }
 
   const { getTodos, deleteTodo, addTodo } = api;
