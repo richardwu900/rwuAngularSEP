@@ -168,6 +168,26 @@ const Controller = ((model, view) => {
         console.log("lol blank selections lmao");
       } else {
         console.log("selctions existwow");
+        console.log(collection);
+        console.log("selctions existwow");
+        console.log("h:");
+          console.log(collection);
+          console.log("h:");
+        var ids= [];
+        for(var i = 0; i < collection.length; i++) {
+          document.getElementById(courses).innerHTML += document.getElementById(collection[i]).innerHTML;
+          ids[i] = collection[i].id;
+        }
+        console.log(ids);
+        for(var i = 0; i < ids.length; i++) {
+          console.log(ids[i]);
+          state.todolist = state.todolist.filter(
+            (todo) => +todo.id !== ids[i]
+          );
+          model.deleteTodo(ids[i]);
+          const element = document.getElementById(ids[i]);
+          element.remove();
+        }
       }
     })
   };
