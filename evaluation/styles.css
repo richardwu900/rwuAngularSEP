@@ -22,7 +22,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Rubik Moonrocks', cursive;
+    /* font-family: 'Rubik Moonrocks', cursive; */
   }
   
   .header {
@@ -89,6 +89,7 @@
   ul li {
     display: flex;
     justify-content: space-between;
+    font-size: 0.5rem;
   }
   ul li span {
     overflow: hidden;
@@ -107,10 +108,13 @@
     font-size: 1.3rem;
   }
   ul li:nth-child(2n) {
-    background-color: var(--color-red-li-hover);
+    /* background-color: var(--color-red-li-hover); */
   }
   ul {
     height: calc(100% - var(--height-todolist-header) * 2);
     overflow: auto;
   }
   
+  .selected {
+    background-color: skyblue;
+  }
