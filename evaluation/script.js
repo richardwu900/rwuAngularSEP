@@ -112,21 +112,21 @@ const Controller = ((model, view) => {
         if (+event.target.classList[0].substring(8) + +document.getElementById("creditCounter").innerHTML <= 18) {
           event.target.classList.add("selected");
           document.getElementById("creditCounter").innerHTML = +event.target.classList[0].substring(8) + +document.getElementById("creditCounter").innerHTML;
-          console.log(document.getElementById ('creditCounter'));
+          // console.log(document.getElementById ('creditCounter'));
         } else {
           alert("You can only choose up to 18 credits in one semester");
         }
       } else {
-        event.target.classList.remove("selected");
+         event.target.classList.remove("selected");
         document.getElementById("creditCounter").innerHTML = (+event.target.classList[0].substring(8) * -1) + +document.getElementById("creditCounter").innerHTML;
         // state.todolist = state.todolist.filter(
         //   (todo) => +todo.id !== +event.target.id
         // );
         // model.deleteTodo(event.target.id);
       }
-      console.log(event.target.classList);
-      console.log(event.target.id);
-      console.log("egg");
+      // console.log(event.target.classList);
+      // console.log(event.target.id);
+      // console.log("egg");
       // if (event.target.className === 'deletebtn') {
       //   state.todolist = state.todolist.filter(
       //     (todo) => +todo.id !== +event.target.id
@@ -163,19 +163,20 @@ const Controller = ((model, view) => {
   const confirmButton= () => {
     document.getElementById("selectButton").addEventListener("click", function() {
       var collection = document.getElementsByClassName("selected")
-      console.log("wow I got pressed");
+      // console.log("wow I got pressed");
       if (collection.length === 0) {
         console.log("lol blank selections lmao");
       } else {
-        console.log("selctions existwow");
-        console.log(collection);
-        console.log("selctions existwow");
+        var creds = document.getElementById('creditCounter');
+        alert('You have chosen ${creds} credits for this semester. You cannot change once you submit. Do you want to confirm?')
+       
         console.log("h:");
           console.log(collection);
           console.log("h:");
         var ids= [];
         for(var i = 0; i < collection.length; i++) {
-          document.getElementById(courses).innerHTML += document.getElementById(collection[i]).innerHTML;
+          // console.log(document.getElementsByClassName(courses).innerHTML);
+          document.getElementById("courses").innerHTML = document.getElementById(collection[i]).innerHTML;
           ids[i] = collection[i].id;
         }
         console.log(ids);
