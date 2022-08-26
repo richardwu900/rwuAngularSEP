@@ -160,6 +160,18 @@ const Controller = ((model, view) => {
     });
   };
 
+  const confirmButton= () => {
+    document.getElementById("selectButton").addEventListener("click", function() {
+      var collection = document.getElementsByClassName("selected")
+      console.log("wow I got pressed");
+      if (collection.length === 0) {
+        console.log("lol blank selections lmao");
+      } else {
+        console.log("selctions existwow");
+      }
+    })
+  };
+
   const init = () => {
     model.getTodos().then((todos) => {
       state.todolist = [...todos];
@@ -171,6 +183,7 @@ const Controller = ((model, view) => {
     // deleteTodo();
     addTodo();
     selectTodo();
+    confirmButton();
   };
 
   return {
