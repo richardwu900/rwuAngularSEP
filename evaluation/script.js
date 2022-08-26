@@ -114,10 +114,11 @@ const Controller = ((model, view) => {
         console.log(document.getElementById ('creditCounter'));
       } else {
         event.target.classList.remove("selected");
-        state.todolist = state.todolist.filter(
-          (todo) => +todo.id !== +event.target.id
-        );
-        model.deleteTodo(event.target.id);
+        document.getElementById("creditCounter").innerHTML = (+event.target.classList[0].substring(8) * -1) + +document.getElementById("creditCounter").innerHTML;
+        // state.todolist = state.todolist.filter(
+        //   (todo) => +todo.id !== +event.target.id
+        // );
+        // model.deleteTodo(event.target.id);
       }
       console.log(event.target.classList);
       console.log(event.target.id);
