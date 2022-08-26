@@ -52,15 +52,13 @@ const Model = ((api, view) => {
   }
   class State {
     #todolist = [];
-    // #selectedlist = [];
+    #selectedlist = [];
     #enrolledList;
 
     get todolist() {
-      // console.log("get depressed loser");
       return this.#todolist;
     }
     set todolist(newtodolist) {
-      // console.log("set deez nuts in ur mouth");
       this.#todolist = [...newtodolist];
 
       const todoContainer = document.querySelector(view.domstr.todoContainer);
@@ -68,21 +66,16 @@ const Model = ((api, view) => {
       view.render(todoContainer, tmp);
     }
 
-    // get selectedlist() {
-    //   // console.log("get depressed loser");
-    //   return this.#selectedlist;
-    // }
-    // set selectedlist(newselectedlist) {
-    //   // console.log("set deez nuts in ur mouth");
-    //   this.#selectedlist = [...selectedlist];
+    get selectedlist() {
+      return this.#selectedlist;
+    }
 
-    //   // const todoContainer = document.querySelector(view.domstr.todoContainer);
-    //   // const tmp = view.createTmp(this.#todolist);
-    //   // view.render(todoContainer, tmp);
-    // }
+    set selectedlist(newselectedlist) {
+      this.#selectedlist = [...newselectedlist];
+    }
+    
     set enrolledList(newenrolledlist) {
       this.#enrolledList = [...newenrolledlist];
-
       const enrolledContainer = document.querySelector(view.domstr.enrolledContainer);
       const tmp = view.createTmp(this.#enrolledList);
       view.render(enrolledContainer, tmp);
