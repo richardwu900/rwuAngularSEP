@@ -16,16 +16,16 @@ const View = (() => {
   const createTmp = (arr) => {
     let tmp = '';
     arr.forEach((todo) => {
-      if (todo.selected === true) {
+      if (todo.completed === true) {
         tmp += `
         <li>
-          <span id="${todo.id}" class="credits:${todo.userId}">req:${todo.completed}-creds:${todo.userId}-id:${todo.id}-${todo.title}-</span>
+          <span id="${todo.id}" class="credits:${todo.userId}">compulsory-creds:${todo.userId}-id:${todo.id}-${todo.title}-</span>
         </li>
       `
       } else {
         tmp += `
         <li>
-          <span id="${todo.id}" class="credits:${todo.userId}">req:${todo.completed}-creds:${todo.userId}-id:${todo.id}-${todo.title}-</span>
+          <span id="${todo.id}" class="credits:${todo.userId}">elective-creds:${todo.userId}-id:${todo.id}-${todo.title}-</span>
         </li>
       `
       };
