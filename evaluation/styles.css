@@ -56,15 +56,11 @@
     margin: 0;
     overflow: auto;
   }
-  
+
   ul li {
     border: 1px solid black;
     height: 50px;
-    /* margin: 0;
-    padding: 0; */
-    border-bottom: 1px;
-    border-left: 0;
-    border-right: 0;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -72,12 +68,9 @@
   }
 
 
-  li:nth-child(even) {
+  li:nth-child(odd) {
     background: rgb(221, 239, 221);
   }
-  /* #enrolledlist_container li:last-child() {
-    border-bottom:1px;
-  } */
   
   .selected {
     background-color: skyblue;
