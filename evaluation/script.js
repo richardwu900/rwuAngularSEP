@@ -135,17 +135,22 @@ const Controller = ((model, view) => {
           console.log("gonna select");
           console.log(item);
           console.log("selected");
-          state.setselectedlist([...state.selectedlist, item]);
+          state.selectedlist = ([...state.selectedlist, item]);
           console.log(state.selectedlist);
           console.log("selected");
           // state.selectedList([course, ...state.tempCourses]);
-          
         } else {
           alert("You can only choose up to 18 credits in one semester");
         }
       } else {
          event.target.classList.remove("selected");
          document.getElementById("creditCounter").innerHTML = (+event.target.classList[0].substring(8) * -1) + +document.getElementById("creditCounter").innerHTML;
+         state.selectedlist = state.selectedlist.filter(
+          (item) => +item.id !== +event.target.id
+         );
+         console.log(event.target.id)
+         console.log("removed hopefully")
+         console.log(state.selectedlist)
         // state.todolist = state.todolist.filter(
         //   (todo) => +todo.id !== +event.target.id
         // );
