@@ -186,16 +186,16 @@ const Controller = ((model, view) => {
   // };
 
   const addTodo = () => {
-    const inputbox = document.querySelector(view.domstr.inputebox);
-    inputbox.addEventListener('keyup', (event) => {
-      if (event.key === 'Enter' && event.target.value.trim()) {
-        const newTodo = new model.Todo(event.target.value);
-        model.addTodo(newTodo).then(todo => {
-          state.todolist = [todo, ...state.todolist];
-        });
-        event.target.value = '';
-      }
-    });
+    // const inputbox = document.querySelector(view.domstr.inputebox);
+    // inputbox.addEventListener('keyup', (event) => {
+    //   if (event.key === 'Enter' && event.target.value.trim()) {
+    //     const newTodo = new model.Todo(event.target.value);
+    //     model.addTodo(newTodo).then(todo => {
+    //       state.todolist = [todo, ...state.todolist];
+    //     });
+    //     event.target.value = '';
+    //   }
+    // });
   };
 
   const confirmButton= () => {

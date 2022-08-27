@@ -26,74 +26,73 @@
   }
   
   .header {
-    height: var(--height-header);
-    width: 100%;
-  
-    background: linear-gradient(to right, black, var(--color-green));
-    line-height: var(--height-header);
-    color: white;
-    padding-left: 10px;
-  
-    font-size: 2rem;
-    text-transform: capitalize;
-    letter-spacing: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
   }
   
   .content {
-    background-color: blanchedalmond;
+    /* background-color: blanchedalmond; */
   
     height: calc(100% - var(--height-header));
-    width: 80%;
+    width: 70%;
   
-    display: flex;
+    /* display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center; */
+  }
+  .columnHolder {
+    display: flex;
+    justify-content: space-around;
   }
   
   .todolist {
+    border: 1px solid black;
     background-color: var(--color-green);
     height: var(--height-todolist);
     width: var(--width-todolist);
+    flex-direction: column;
+    box-sizing: border-box;
+    overflow: auto
   
-    box-shadow: 5px 5px 2px black;
-    border-radius: 5px;
-  
+    /* box-shadow: 5px 5px 2px black; */
+    /* border-radius: 5px; */
+
     /* position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); */
   }
   
-  .todolist__header,
-  .todolist__input,
-  ul li {
-    height: var(--height-todolist-header);
-    line-height: var(--height-todolist-header);
-    width: 100%;
-  
-    padding-left: 10px;
-  
-    border: none;
-    outline: none;
-  
-    font-size: 1rem;
-    text-transform: capitalize;
-    letter-spacing: 1px;
-  
-    list-style: none;
-  }
-  .todolist__header {
-    font-size: 1.5rem;
-    text-align: center;
-  }
-  ul li {
+  .todolist__header{
     display: flex;
-    justify-content: space-between;
-    font-size: 0.5rem;
+    font-size: 15px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-top: 0;
+    border-left: 0;
+
+    font-weight: bold;
+
+    width: 100%;
+    height: 40px;
+    margin: 0;
   }
-  ul li span {
-    overflow: hidden;
+  ul li {
+    border: 1px solid black;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    border-bottom: 0;
+    border-left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
   }
+
   ul li button {
     margin-right: 10px;
     background-color: rgba(0, 0, 0, 0);
@@ -111,10 +110,20 @@
     /* background-color: var(--color-red-li-hover); */
   }
   ul {
-    height: calc(100% - var(--height-todolist-header) * 2);
+    /* height: calc(100% - var(--height-todolist-header) * 2); */
+    padding: 0;
+    margin: 0;
     overflow: auto;
   }
   
   .selected {
     background-color: skyblue;
+  }
+
+  .creditContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
   }
