@@ -19,14 +19,18 @@ const View = (() => {
     arr.forEach((todo) => {
       if (todo.completed === true) {
         tmp += `
-        <li>
-          <span id="${todo.id}" class="credits:${todo.userId}">compulsory-creds:${todo.userId}-id:${todo.id}-${todo.title}-</span>
+        <li id="${todo.id}" class="credits:${todo.userId}">
+          <span>compulsory</span>
+          <span>creds:${todo.userId}</span>
+          <span>id:${todo.id}-${todo.title}-</span>
         </li>
       `
       } else {
         tmp += `
-        <li>
-          <span id="${todo.id}" class="credits:${todo.userId}">elective-creds:${todo.userId}-id:${todo.id}-${todo.title}-</span>
+        <li id="${todo.id}" class="credits:${todo.userId}">
+          <span>elective</span>
+          <span>creds:${todo.userId}</span>
+          <span>id:${todo.id}-${todo.title}-</span>
         </li>
       `
       };
