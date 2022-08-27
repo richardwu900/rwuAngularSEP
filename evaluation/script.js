@@ -118,6 +118,23 @@ const Controller = ((model, view) => {
   const selectTodo = () => {
     const todoContainer = document.querySelector(view.domstr.todoContainer);
     todoContainer.addEventListener('click', (event) => {
+      var target = event.target;
+      // console.log("WAHH")
+      console.log(target.parentElement.tagName)
+      if (target.parentElement.tagName === "LI"){
+        console.log("YAYYAYAY")
+        target = target.parentElement
+      }
+      console.log(target)
+
+      // if (target.type === span) {
+      //   console.log("SPAN SPAN SPAN");
+      //   console.log("SPAN SPAN SPAN");
+
+      //   console.log("SPAN SPAN SPAN");
+      //   console.log("SPAN SPAN SPAN");
+
+      // }
       console.log("situational therapy");
       console.log(state.todolist);
       console.log("situational therapy");
@@ -130,15 +147,15 @@ const Controller = ((model, view) => {
 
       //   // };
       // });
-      if (!event.target.classList.contains("selected")){
-        if (+event.target.classList[0].substring(8) + +document.getElementById("creditCounter").innerHTML <= 18) {
-          event.target.classList.add("selected");
-          document.getElementById("creditCounter").innerHTML = +event.target.classList[0].substring(8) + +document.getElementById("creditCounter").innerHTML;
+      if (!target.classList.contains("selected")){
+        if (+target.classList[0].substring(8) + +document.getElementById("creditCounter").innerHTML <= 18) {
+          target.classList.add("selected");
+          document.getElementById("creditCounter").innerHTML = +target.classList[0].substring(8) + +document.getElementById("creditCounter").innerHTML;
           // const { userId, id, title, completed } = state.todolist.find(x=>x.id === event.target.id);
           console.log(state.todolist)
-          console.log(+event.target.id)
-          console.log(state.todolist.find(x=>+x.id === +event.target.id));
-          const { userId, id, title, completed } = (state.todolist.find(x=>+x.id === +event.target.id));
+          console.log(+target.id)
+          console.log(state.todolist.find(x=>+x.id === +target.id));
+          const { userId, id, title, completed } = (state.todolist.find(x=>+x.id === +target.id));
           console.log(userId);
           const item = new model.Todo(userId, id, title, completed);
           console.log(userId);
@@ -153,12 +170,12 @@ const Controller = ((model, view) => {
           alert("You can only choose up to 18 credits in one semester");
         }
       } else {
-         event.target.classList.remove("selected");
-         document.getElementById("creditCounter").innerHTML = (+event.target.classList[0].substring(8) * -1) + +document.getElementById("creditCounter").innerHTML;
+         target.classList.remove("selected");
+         document.getElementById("creditCounter").innerHTML = (+target.classList[0].substring(8) * -1) + +document.getElementById("creditCounter").innerHTML;
          state.selectedlist = state.selectedlist.filter(
-          (item) => +item.id !== +event.target.id
+          (item) => +item.id !== +target.id
          );
-         console.log(event.target.id)
+         console.log(target.id)
          console.log("removed hopefully")
          console.log(state.selectedlist)
         // state.todolist = state.todolist.filter(
