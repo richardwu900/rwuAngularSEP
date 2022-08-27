@@ -6,7 +6,6 @@ export const Api = (() => {
 //   const baseUrl = 'https://jsonplaceholder.typicode.com';
   const baseUrl = 'http://localhost:4232';
   const todoPath = 'todos';
-  // wait wtf, so if that works.... WHY IS IT ONYL DISPLAYING UNDEFINED!??!!?
 
   const getTodos = () =>
     fetch([baseUrl, todoPath].join('/')).then((response) => response.json());
@@ -16,19 +15,8 @@ export const Api = (() => {
       method: 'DELETE',
     });
 
-  const addTodo = (todo) =>
-    // console.log(todo);
-    fetch([baseUrl, todoPath].join('/'), {
-      method: 'POST',
-      body: JSON.stringify(todo),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    })
-      .then((response) => response.json())
   return {
     getTodos,
     deleteTodo,
-    addTodo
   };
 })();
