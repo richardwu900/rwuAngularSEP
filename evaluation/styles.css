@@ -18,13 +18,6 @@
   }
   
   /* css reset */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    /* font-family: 'Rubik Moonrocks', cursive; */
-  }
-  
   .header {
     display: flex;
     justify-content: center;
@@ -49,7 +42,7 @@
   
   .todolist {
     border: 1px solid black;
-    background-color: var(--color-green);
+    /* background-color: var(--color-green); */
     height: var(--height-todolist);
     width: var(--width-todolist);
     flex-direction: column;
@@ -114,6 +107,10 @@
     padding: 0;
     margin: 0;
     overflow: auto;
+  }
+
+  li:nth-child(even) {
+    background: rgb(221, 239, 221);
   }
   
   .selected {
