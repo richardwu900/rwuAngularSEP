@@ -20,17 +20,17 @@ const View = (() => {
       if (todo.completed === true) {
         tmp += `
         <li id="${todo.id}" class="credits:${todo.userId}">
-          <span>compulsory</span>
-          <span>creds:${todo.userId}</span>
-          <span>id:${todo.id}-${todo.title}-</span>
+          <span>${todo.title}</span>
+          <span>Course Type: Compulsory</span>
+          <span>Course Credits:${todo.userId}</span>
         </li>
       `
       } else {
         tmp += `
         <li id="${todo.id}" class="credits:${todo.userId}">
-          <span>elective</span>
-          <span>creds:${todo.userId}</span>
-          <span>id:${todo.id}-${todo.title}-</span>
+          <span>${todo.title}</span>
+          <span>Course Type: Elective</span>
+          <span>Course Credits:${todo.userId}</span>
         </li>
       `
       };
