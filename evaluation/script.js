@@ -74,6 +74,10 @@ const Model = ((api, view) => {
     set selectedlist(newselectedlist) {
       this.#selectedlist = [...newselectedlist];
     }
+
+    setselectedlist(newselectedlist) {
+      this.#selectedlist = [...newselectedlist];
+    }
     
     set enrolledList(newenrolledlist) {
       this.#enrolledList = [...newenrolledlist];
@@ -107,7 +111,7 @@ const Controller = ((model, view) => {
       console.log("situational therapy");
       console.log(state.todolist);
       console.log("situational therapy");
-      console.log(event.target.className);
+      // console.log(event.target.className);
       // state.todolist = state.todolist.forEach((element) => {
       //   console.log(element.selected);
       //   // if (element.selected === false) {
@@ -124,8 +128,16 @@ const Controller = ((model, view) => {
           console.log(state.todolist)
           console.log(+event.target.id)
           console.log(state.todolist.find(x=>+x.id === +event.target.id));
-          const { userId, id, title, completed } = {courseId: 3, courseName: 'System Design', required: true, credit: 3};
+          const { userId, id, title, completed } = (state.todolist.find(x=>+x.id === +event.target.id));
+          console.log(userId);
           const item = new model.Todo(userId, id, title, completed);
+          console.log(userId);
+          console.log("gonna select");
+          console.log(item);
+          console.log("selected");
+          state.setselectedlist([...state.selectedlist, item]);
+          console.log(state.selectedlist);
+          console.log("selected");
           // state.selectedList([course, ...state.tempCourses]);
           
         } else {
