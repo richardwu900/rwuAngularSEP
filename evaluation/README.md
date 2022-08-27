@@ -1,1 +1,11 @@
-Why was all that showed up for the courseList undefined? For todos, blogs, etc., it all worked perfectly fine, but for courseList it didn't work at all! What the heck!? That ate up over an hour of my time at first, trying to diagnose it before just switching to todos, making "completed" required, "user id" credits, and so on..
+For over the first hour, it just returned undefined when trying to fetch the courseList data, I tried troubleshooting to no avail.
+So, I provided the exact same functionality, just with todos instead. Their attributes lined up neatly:
+
+userId    :: Credits    (number)
+completed :: Required   (boolean)
+id        :: courseId   (string)
+title     :: courseName (string)
+
+So please do excuse, it's still fetching data from a json database, and it has all the exact same functionality intended.
+
+Also,
