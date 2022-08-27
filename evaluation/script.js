@@ -22,7 +22,7 @@ const View = (() => {
         <li id="${todo.id}" class="credits:${todo.userId}">
           <span>${todo.title}</span>
           <span>Course Type: Compulsory</span>
-          <span>Course Credits:${todo.userId}</span>
+          <span>Course Credits: ${todo.userId}</span>
         </li>
       `
       } else {
@@ -30,7 +30,7 @@ const View = (() => {
         <li id="${todo.id}" class="credits:${todo.userId}">
           <span>${todo.title}</span>
           <span>Course Type: Elective</span>
-          <span>Course Credits:${todo.userId}</span>
+          <span>Course Credits: ${todo.userId}</span>
         </li>
       `
       };
@@ -226,6 +226,7 @@ const Controller = ((model, view) => {
                );
             }
             state.selectedlist = [];
+            document.getElementById('selectButton').disabled = true;
           } else {
             text = "You canceled!";
           }
