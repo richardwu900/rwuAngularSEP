@@ -54,7 +54,7 @@ const Model = ((api, view) => {
   class State {
     #todolist = [];
     #selectedlist = [];
-    #enrolledList;
+    #enrolledList = [];
 
     get todolist() {
       return this.#todolist;
@@ -77,6 +77,10 @@ const Model = ((api, view) => {
 
     setselectedlist(newselectedlist) {
       this.#selectedlist = [...newselectedlist];
+    }
+
+    get enrolledList() {
+      return this.#enrolledList;
     }
     
     set enrolledList(newenrolledlist) {
@@ -103,6 +107,8 @@ const Controller = ((model, view) => {
   const state = new model.State();
   console.log("hUHHH");
   console.log(state.todolist);
+  console.log(state.enrolledList);
+
   console.log("hUHHH");
 
   const selectTodo = () => {
@@ -194,33 +200,43 @@ const Controller = ((model, view) => {
 
   const confirmButton= () => {
     document.getElementById("selectButton").addEventListener("click", function() {
+      console.log("if it works here then why-")
+      console.log(state.enrolledList)
       var collection = document.getElementsByClassName("selected")
       // console.log("wow I got pressed");
       if (collection.length === 0) {
+        console.log(state.enrolledList)
         console.log("lol blank selections lmao");
       } else {
+        console.log(state.enrolledList)
         var creds = document.getElementById('creditCounter');
-        alert('You have chosen ${creds} credits for this semester. You cannot change once you submit. Do you want to confirm?')
+        // alert('You have chosen ${creds} credits for this semester. You cannot change once you submit. Do you want to confirm?')
+        // const coursesToAdd = state.selectedlist;
+        // state.setSelectedCourses(coursesToAdd);
+        console.log("enrowo");
+        console.log(state.enrolledList);
+        state.enrolledList = ([...state.enrolledList, ...state.selectedlist]);
+        // console.log(enrolledList);
        
-        console.log("h:");
-          console.log(collection);
-          console.log("h:");
-        var ids= [];
-        for(var i = 0; i < collection.length; i++) {
-          // console.log(document.getElementsByClassName(courses).innerHTML);
-          document.getElementById("courses").innerHTML = document.getElementById(collection[i]).innerHTML;
-          ids[i] = collection[i].id;
-        }
-        console.log(ids);
-        for(var i = 0; i < ids.length; i++) {
-          console.log(ids[i]);
-          state.todolist = state.todolist.filter(
-            (todo) => +todo.id !== ids[i]
-          );
-          model.deleteTodo(ids[i]);
-          const element = document.getElementById(ids[i]);
-          element.remove();
-        }
+        // console.log("h:");
+        //   console.log(collection);
+        //   console.log("h:");
+        // var ids= [];
+        // for(var i = 0; i < collection.length; i++) {
+        //   // console.log(document.getElementsByClassName(courses).innerHTML);
+        //   document.getElementById("courses").innerHTML = document.getElementById(collection[i]).innerHTML;
+        //   ids[i] = collection[i].id;
+        // }
+        // console.log(ids);
+        // for(var i = 0; i < ids.length; i++) {
+        //   console.log(ids[i]);
+        //   state.todolist = state.todolist.filter(
+        //     (todo) => +todo.id !== ids[i]
+        //   );
+        //   model.deleteTodo(ids[i]);
+        //   const element = document.getElementById(ids[i]);
+        //   element.remove();
+        // }
       }
     })
   };
