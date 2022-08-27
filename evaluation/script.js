@@ -200,8 +200,8 @@ const Controller = ((model, view) => {
 
   const confirmButton= () => {
     document.getElementById("selectButton").addEventListener("click", function() {
-      console.log("if it works here then why-")
-      console.log(state.enrolledList)
+      // console.log("if it works here then why-")
+      // console.log(state.enrolledList)
       var collection = document.getElementsByClassName("selected")
       // console.log("wow I got pressed");
       if (collection.length === 0) {
@@ -209,41 +209,52 @@ const Controller = ((model, view) => {
         console.log("lol blank selections lmao");
       } else {
         console.log(state.enrolledList)
-        var creds = document.getElementById('creditCounter');
+        var creds = document.getElementById('creditCounter').innerHTML;
+        let text = "You have chosen " +
+          creds +
+          " credits for this semester. You cannot change once you submit. Do you want to confirm?";
+          if (confirm(text) == true) {
+            state.enrolledList = ([...state.enrolledList, ...state.selectedlist]);
+            for(var i = 0; i < state.selectedlist.length; i++) {
+              console.log(state.selectedlist[i]);
+              state.todolist = state.todolist.filter(
+                (item) => (item.id !== state.selectedlist[i].id)
+               );
+            }
+            state.selectedlist = [];
+          } else {
+            text = "You canceled!";
+          }
         // alert('You have chosen ${creds} credits for this semester. You cannot change once you submit. Do you want to confirm?')
         // const coursesToAdd = state.selectedlist;
         // state.setSelectedCourses(coursesToAdd);
-        console.log("enrowo");
-        console.log(state.enrolledList);
-        state.enrolledList = ([...state.enrolledList, ...state.selectedlist]);
-        // console.log(state.todolist.filter(
-        //   todo => (!state.selectedlist.includes(todo))
-        // ));
-        // console.log(enrolledList);
+        // console.log("enrowo");
+        // console.log(state.enrolledList);
+        // state.enrolledList = ([...state.enrolledList, ...state.selectedlist]);
+        // // console.log(state.todolist.filter(
+        // //   todo => (!state.selectedlist.includes(todo))
+        // // ));
+        // // console.log(enrolledList);
        
-        // console.log("h:");
-        //   console.log(collection);
-        //   console.log("h:");
-        var ids= [];
-        console.log(state.todolist);
-        for(var i = 0; i < state.selectedlist.length; i++) {
-          console.log(state.selectedlist[i]);
-          state.todolist = state.todolist.filter(
-            (item) => (item.id !== state.selectedlist[i].id)
-           );
-          
-          // console.log(document.getElementsByClassName(courses).innerHTML);
-          // document.getElementById("courses").innerHTML = document.getElementById(collection[i]).innerHTML;
-          // ids[i] = collection[i].id;
-        }
-        state.selectedlist = [];
+        // // console.log("h:");
+        // //   console.log(collection);
+        // //   console.log("h:");
+        // // var ids= [];
+        // // console.log(state.todolist);
+        // for(var i = 0; i < state.selectedlist.length; i++) {
+        //   console.log(state.selectedlist[i]);
+        //   state.todolist = state.todolist.filter(
+        //     (item) => (item.id !== state.selectedlist[i].id)
+        //    );
+        // }
+        // state.selectedlist = [];
         // console.log(ids);
         // for (var i = 0; i < ids.length; i++){
         //   state.todolist = state.todolist.filter(
         //     (item) => +item.id !== +ids[i]
         //    );
         // }
-        console.log(state.todolist);
+        // console.log(state.todolist);
         // console.log(ids);
         // for(var i = 0; i < ids.length; i++) {
         //   console.log(ids[i]);
