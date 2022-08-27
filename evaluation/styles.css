@@ -4,10 +4,6 @@
     --height-todolist-header: 30px;
   
     --width-todolist: 200px;
-  
-    --color-green: rgb(30, 255, 0);
-    --color-red-button: rgb(148, 21, 21);
-    --color-red-li-hover: rgb(27, 172, 8);
   }
   
   html,
@@ -17,7 +13,6 @@
     /* overflow: hidden; */
   }
   
-  /* css reset */
   .header {
     display: flex;
     justify-content: center;
@@ -25,16 +20,6 @@
     margin: auto;
   }
   
-  .content {
-    /* background-color: blanchedalmond; */
-  
-    height: calc(100% - var(--height-header));
-    width: 70%;
-  
-    /* display: flex;
-    justify-content: space-between;
-    align-items: center; */
-  }
   .columnHolder {
     display: flex;
     justify-content: space-around;
