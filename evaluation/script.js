@@ -44,8 +44,8 @@ const View = (() => {
 /* ~~~~~~~~~~~~~~~~ Model ~~~~~~~~~~~~~~~~ */
 const Model = ((api, view) => {
   class Todo {
-    constructor(userId, id, title, completed) {
-      this.userId = userId;
+    constructor(wtf, id, title, completed) {
+      this.userId = wtf;
       this.id = id;
       this.title = title;
       this.completed = completed;
@@ -104,7 +104,9 @@ const Controller = ((model, view) => {
   const selectTodo = () => {
     const todoContainer = document.querySelector(view.domstr.todoContainer);
     todoContainer.addEventListener('click', (event) => {
-      console.log("egg");
+      console.log("situational therapy");
+      console.log(state.todolist);
+      console.log("situational therapy");
       console.log(event.target.className);
       // state.todolist = state.todolist.forEach((element) => {
       //   console.log(element.selected);
@@ -119,10 +121,12 @@ const Controller = ((model, view) => {
           event.target.classList.add("selected");
           document.getElementById("creditCounter").innerHTML = +event.target.classList[0].substring(8) + +document.getElementById("creditCounter").innerHTML;
           // const { userId, id, title, completed } = state.todolist.find(x=>x.id === event.target.id);
-          console.log(state.todolist.find(x=>x.id === event.target.id));
-          // const { userId, id, title, completed } = {courseId: 3, courseName: 'System Design', required: true, credit: 3};
+          console.log(state.todolist)
+          console.log(+event.target.id)
+          console.log(state.todolist.find(x=>+x.id === +event.target.id));
+          const { userId, id, title, completed } = {courseId: 3, courseName: 'System Design', required: true, credit: 3};
           const item = new model.Todo(userId, id, title, completed);
-          state.selectedList([course, ...state.tempCourses]);
+          // state.selectedList([course, ...state.tempCourses]);
           
         } else {
           alert("You can only choose up to 18 credits in one semester");
@@ -206,8 +210,9 @@ const Controller = ((model, view) => {
 
   const init = () => {
     model.getTodos().then((todos) => {
-      state.todolist = [...todos];
-      console.log(state.todolist)
+      // state.todolist = [...todos];
+      state.todolist = todos;
+      // console.log(state.todolist)
     });
   };
 
