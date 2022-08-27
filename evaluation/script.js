@@ -44,8 +44,9 @@ const View = (() => {
 /* ~~~~~~~~~~~~~~~~ Model ~~~~~~~~~~~~~~~~ */
 const Model = ((api, view) => {
   class Todo {
-    constructor(title) {
-      this.userId = 1;
+    constructor(userId, id, title, completed) {
+      this.userId = userId;
+      this.id = id;
       this.title = title;
       this.completed = completed;
     }
@@ -96,6 +97,9 @@ const Model = ((api, view) => {
 /* ~~~~~~~~~~~~~~~~ Controller ~~~~~~~~~~~~~~~~ */
 const Controller = ((model, view) => {
   const state = new model.State();
+  console.log("hUHHH");
+  console.log(state.todolist);
+  console.log("hUHHH");
 
   const selectTodo = () => {
     const todoContainer = document.querySelector(view.domstr.todoContainer);
@@ -114,13 +118,18 @@ const Controller = ((model, view) => {
         if (+event.target.classList[0].substring(8) + +document.getElementById("creditCounter").innerHTML <= 18) {
           event.target.classList.add("selected");
           document.getElementById("creditCounter").innerHTML = +event.target.classList[0].substring(8) + +document.getElementById("creditCounter").innerHTML;
-          // console.log(document.getElementById ('creditCounter'));
+          // const { userId, id, title, completed } = state.todolist.find(x=>x.id === event.target.id);
+          console.log(state.todolist.find(x=>x.id === event.target.id));
+          // const { userId, id, title, completed } = {courseId: 3, courseName: 'System Design', required: true, credit: 3};
+          const item = new model.Todo(userId, id, title, completed);
+          state.selectedList([course, ...state.tempCourses]);
+          
         } else {
           alert("You can only choose up to 18 credits in one semester");
         }
       } else {
          event.target.classList.remove("selected");
-        document.getElementById("creditCounter").innerHTML = (+event.target.classList[0].substring(8) * -1) + +document.getElementById("creditCounter").innerHTML;
+         document.getElementById("creditCounter").innerHTML = (+event.target.classList[0].substring(8) * -1) + +document.getElementById("creditCounter").innerHTML;
         // state.todolist = state.todolist.filter(
         //   (todo) => +todo.id !== +event.target.id
         // );
@@ -198,6 +207,7 @@ const Controller = ((model, view) => {
   const init = () => {
     model.getTodos().then((todos) => {
       state.todolist = [...todos];
+      console.log(state.todolist)
     });
   };
 
