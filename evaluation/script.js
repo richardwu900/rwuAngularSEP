@@ -21,16 +21,16 @@ const View = (() => {
         tmp += `
         <li id="${course.courseId}" class="credits:${course.credit}">
           <span>${course.courseName}</span>
-          <span>Course Type: Compulsory</span>
-          <span>Course Credits: ${course.credit}</span>
+          <span>Course Type : Compulsory</span>
+          <span>Course Credit : ${course.credit}</span>
         </li>
       `
       } else {
         tmp += `
         <li id="${course.courseId}" class="credits:${course.credit}">
           <span>${course.courseName}</span>
-          <span>Course Type: Elective</span>
-          <span>Course Credits: ${course.credit}</span>
+          <span>Course Type : Elective</span>
+          <span>Course Credit : ${course.credit}</span>
         </li>
       `
       };
