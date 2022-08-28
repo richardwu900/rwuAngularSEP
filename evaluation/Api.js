@@ -5,7 +5,7 @@ export const Api = (() => {
   // .then(json => console.log(json))
 //   const baseUrl = 'https://jsonplaceholder.typicode.com';
   const baseUrl = 'http://localhost:4232';
-  const todoPath = 'todos';
+  const todoPath = 'courseList';
 
   const getTodos = () =>
     fetch([baseUrl, todoPath].join('/')).then((response) => response.json());

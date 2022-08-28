@@ -16,21 +16,21 @@ const View = (() => {
 
   const createTmp = (arr) => {
     let tmp = '';
-    arr.forEach((todo) => {
-      if (todo.completed === true) {
+    arr.forEach((course) => {
+      if (course.required === true) {
         tmp += `
-        <li id="${todo.id}" class="credits:${todo.userId}">
-          <span>${todo.title}</span>
+        <li id="${course.courseId}" class="credits:${course.credit}">
+          <span>${course.courseName}</span>
           <span>Course Type: Compulsory</span>
-          <span>Course Credits: ${todo.userId}</span>
+          <span>Course Credits: ${course.credit}</span>
         </li>
       `
       } else {
         tmp += `
-        <li id="${todo.id}" class="credits:${todo.userId}">
-          <span>${todo.title}</span>
+        <li id="${course.courseId}" class="credits:${course.credit}">
+          <span>${course.courseName}</span>
           <span>Course Type: Elective</span>
-          <span>Course Credits: ${todo.userId}</span>
+          <span>Course Credits: ${course.credit}</span>
         </li>
       `
       };
@@ -47,12 +47,20 @@ const View = (() => {
 
 /* ~~~~~~~~~~~~~~~~ Model ~~~~~~~~~~~~~~~~ */
 const Model = ((api, view) => {
-  class Todo {
-    constructor(wtf, id, title, completed) {
-      this.userId = wtf; //credits
-      this.id = id; //courseId
-      this.title = title; //courseName
-      this.completed = completed; //required
+  // class Todo {
+  //   constructor(wtf, id, title, completed) {
+  //     this.userId = wtf; //credits
+  //     this.id = id; //courseId
+  //     this.title = title; //courseName
+  //     this.completed = completed; //required
+  //   }
+  // }
+  class Course {
+    constructor(courseId, courseName, required, credit) {
+      this.courseId = courseId; //courseId
+      this.courseName = courseName; //courseName
+      this.required = required; //required
+      this.credit = credit; //credits
     }
   }
   class State {
@@ -102,7 +110,7 @@ const Model = ((api, view) => {
 
   return {
     getTodos,
-    Todo,
+    Course,
     State,
   };
 })(Api, View);
@@ -130,8 +138,8 @@ const Controller = ((model, view) => {
           // Increase the total credit by the target's credit value
           document.getElementById("creditCounter").innerHTML = +target.classList[0].substring(8) + +document.getElementById("creditCounter").innerHTML;
           // Map the values of target to these keys, and make a new model.Todo out of it to add to "selected list" (& add it)
-          const { userId, id, title, completed } = (state.todolist.find(x => +x.id === +target.id));
-          const item = new model.Todo(userId, id, title, completed);
+          const { courseId, courseName, required, credit } = (state.todolist.find(x => +x.courseId === +target.id));
+          const item = new model.Course(courseId, courseName, required, credit );
           state.selectedlist = ([...state.selectedlist, item]);
         } else { // ... and if the target will put it over the max 18:
           alert("You can only choose up to 18 credits in one semester");
@@ -163,7 +171,7 @@ const Controller = ((model, view) => {
         // Remove the selectedlists from "Available Courses"
         for (var i = 0; i < state.selectedlist.length; i++) {
           state.todolist = state.todolist.filter(
-            (item) => (item.id !== state.selectedlist[i].id)
+            (item) => (item.courseId !== state.selectedlist[i].courseId)
           );
         }
         // Empty selectedlist
